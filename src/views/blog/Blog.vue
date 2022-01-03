@@ -9,12 +9,15 @@
   <h2>Reactive</h2>
   <p>Posts: {{ blogTwo.posts }} - Comments: {{ blogTwo.comments }}</p>
   <button @click="updateBlogTwo">Add +1 to comments</button>
+  <BlogPosts />
 </template>
 
 <script>
+import BlogPosts from "./BlogPosts.vue";
 import { ref, reactive } from "@vue/reactivity"; // import the parts from vue that you need to use
 export default {
   name: "Blog",
+  components: { BlogPosts },
   setup() {
     const name = ref("Leah"); // these are now reactive values
     const age = ref(34);

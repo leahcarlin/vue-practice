@@ -4,7 +4,7 @@ import About from "../views/About.vue";
 import Jobs from "../views/jobs/Jobs.vue";
 import JobDetails from "../views/jobs/JobDetails.vue";
 import NotFound from "../views/NotFound.vue";
-import Blog from "../views/Blog.vue";
+import Blog from "../views/blog/Blog.vue";
 
 const routes = [
   {
