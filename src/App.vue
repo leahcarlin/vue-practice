@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link>
     <router-link :to="{ name: 'About' }">About</router-link>
     <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
+    <router-link :to="{ name: 'Blog' }">Blog</router-link>
   </div>
 
   <button @click="redirect">Redirect</button>

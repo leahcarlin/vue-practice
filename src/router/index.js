@@ -4,6 +4,7 @@ import About from "../views/About.vue";
 import Jobs from "../views/jobs/Jobs.vue";
 import JobDetails from "../views/jobs/JobDetails.vue";
 import NotFound from "../views/NotFound.vue";
+import Blog from "../views/Blog.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: "JobDetails", // usually name is the same as the component name
     component: JobDetails,
     props: true,
+  },
+  {
+    path: "/blog",
+    name: "Blog",
+    component: Blog,
   },
   // redirect
   {
