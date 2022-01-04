@@ -5,6 +5,7 @@ import Jobs from "../views/jobs/Jobs.vue";
 import JobDetails from "../views/jobs/JobDetails.vue";
 import NotFound from "../views/NotFound.vue";
 import Blog from "../views/blog/Blog.vue";
+import Details from "../views/blog/Details.vue";
 
 const routes = [
   {
@@ -32,6 +33,12 @@ const routes = [
     path: "/blog",
     name: "Blog",
     component: Blog,
+  },
+  {
+    path: "/blog/posts/:id",
+    name: "Details",
+    component: Details,
+    props: true,
   },
   // redirect
   {
