@@ -9,11 +9,20 @@
   <h2>Reactive</h2>
   <p>Posts: {{ blogTwo.posts }} - Comments: {{ blogTwo.comments }}</p>
   <button @click="updateBlogTwo">Add +1 to comments</button>
-  <BlogPosts />
+  <div v-if="error">
+    <p>{{ error }}</p>
+  </div>
+  <div v-if="posts.length">
+    <BlogPosts v-if="showPosts" :posts="posts" />
+  </div>
+  <div v-else>Loading...</div>
+  <button @click="showPosts = !showPosts">Toggle Posts</button>
+  <button @click="posts.pop()">Delete a Post</button>
 </template>
 
 <script>
 import BlogPosts from "./BlogPosts.vue";
+import getPosts from "../../composables/getPosts";
 import { ref, reactive } from "@vue/reactivity"; // import the parts from vue that you need to use
 export default {
   name: "Blog",
@@ -35,6 +44,12 @@ export default {
     const updateBlogTwo = () => {
       blogTwo.comments += 1;
     };
+
+    const showPosts = ref(true);
+
+    const { posts, error, load } = getPosts(); // assign to function so that you can use variables
+    load();
+
     return {
       name,
       age,
@@ -43,6 +58,9 @@ export default {
       updateBlog,
       blogTwo,
       updateBlogTwo,
+      posts,
+      showPosts,
+      error,
     };
   },
   data() {
